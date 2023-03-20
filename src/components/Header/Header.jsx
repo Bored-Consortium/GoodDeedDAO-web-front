@@ -9,8 +9,8 @@ const Header = () => {
         <div className={'header'}>
             <span className={'username'}>
                 Вы авторизованы как: {user?.username}
-                На данный момент в игре "ZovDobra" ассета нет
-                Coming soon, как говорится
+                \nНа данный момент в игре "ZovDobra" ассета нет
+                \nComing soon, как говорится
             </span>
         </div>
     );
