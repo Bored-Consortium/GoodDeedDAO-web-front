@@ -34,6 +34,7 @@ const ProductList = () => {
             },
             body: JSON.stringify(data)
         })
+        console.log("stringify(data): ", JSON.stringify(data));
     }, [addedItems])
 
     useEffect(() => {
