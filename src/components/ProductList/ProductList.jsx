@@ -26,6 +26,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
+        console.log("data: ", data);
         fetch('http://37.9.5.17:8000/web-data', {
             method: 'POST',
             headers: {
@@ -34,7 +35,6 @@ const ProductList = () => {
             body: JSON.stringify(data)
         })
     }, [addedItems])
-    console.log("onSendData: ", onSendData);
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -52,7 +52,7 @@ const ProductList = () => {
         } else {
             newItems = [...addedItems, product];
         }
-
+        console.log("newItems: ", newItems);
         setAddedItems(newItems)
 
         if(newItems.length === 0) {
@@ -64,7 +64,7 @@ const ProductList = () => {
             })
         }
     }
-    console.log("onAdd: ", onAdd);
+
     return (
         <div className={'list'}>
             {products.map(item => (
