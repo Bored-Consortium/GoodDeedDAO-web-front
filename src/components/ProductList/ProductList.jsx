@@ -27,7 +27,7 @@ const ProductList = () => {
             queryId,
         }
         console.log("data: ", data);
-        fetch('http://37.9.5.17:8080/web-data', {
+        fetch('http://37.9.5.17:8080', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
