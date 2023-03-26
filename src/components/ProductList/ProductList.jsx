@@ -25,7 +25,7 @@ const ProductList = () => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            queryId,
+            id: queryId,
         }
         console.log("data: ", data);
         fetch('http://37.9.5.17:8080/web-data', {
@@ -35,7 +35,6 @@ const ProductList = () => {
             },
             body: JSON.stringify(data)
         })
-        console.log("stringify(data): ", JSON.stringify(data));
     }, [addedItems])
 
     useEffect(() => {
