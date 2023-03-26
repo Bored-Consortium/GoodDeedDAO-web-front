@@ -3,6 +3,7 @@ import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
+import Button from "../Button/Button";
 
 const products = [
     {id: '1', title: 'NFT-Джинсы', price: 5000, description: 'Синего цвета, прямые'},
@@ -75,6 +76,9 @@ const ProductList = () => {
                     className={'item'}
                 />
             ))}
+            <Button className={'test-btn'} onClick={onSendData()}>
+                Отправить
+            </Button>
         </div>
     );
 };

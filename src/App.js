@@ -25,9 +25,9 @@ function App() {
             <Route index element={<ProductList />}/>
             <Route path={'form'} element={<Form />}/>
         </Routes>
-        <Button className={'add-btn'} onClick={onTestBtnHandler}>
-            Отправить запрос
-        </Button>
+        {/*<Button className={'add-btn'} onClick={onTestBtnHandler}>*/}
+        {/*    Отправить запрос*/}
+        {/*</Button>*/}
     </div>
   );
 }
