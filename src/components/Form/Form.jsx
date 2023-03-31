@@ -35,7 +35,7 @@ const Form = () => {
             bot_key,
         }
         tg.sendData(JSON.stringify(data));
-    }, [])
+    }, [id, username, first_name, last_name, bot_key])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
