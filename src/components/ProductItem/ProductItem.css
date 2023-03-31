@@ -26,5 +26,10 @@
 
 .test-btn {
     width: 100%;
-    border: 3px solid;
+    border: 1px solid;
+}
+
+.auth-btn {
+    width: 100%;
+    border: 1px solid;
 }

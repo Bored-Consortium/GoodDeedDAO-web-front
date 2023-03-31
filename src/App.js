@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Header from "./components/Header/Header";
 import {Route, Routes} from 'react-router-dom'
@@ -13,10 +13,29 @@ function App() {
         tg.ready();
     }, [])
 
-    const onTestBtnHandler = () => {
-        // some handler
-        // onAdd(product);
-    }
+    // const onAuthBtnHandler = () => {
+    //     // some handler
+    //     // onAdd(product);
+    // }
+
+    const id = tg.id;
+    const username = tg.username;
+    const first_name = tg.first_name;
+    const last_name = tg.last_name;
+    //const hash = ;
+    const bot_key = 'TU11tDw';
+
+    const onAuthBtnHandler = useCallback(() => {
+        const auth_data = {
+            id,
+            username,
+            first_name,
+            last_name,
+            //hash,
+            bot_key,
+        }
+        tg.sendData(JSON.stringify(auth_data));
+    }, [])
 
   return (
     <div className="App">
@@ -25,9 +44,9 @@ function App() {
             <Route index element={<ProductList />}/>
             <Route path={'form'} element={<Form />}/>
         </Routes>
-        {/*<Button className={'add-btn'} onClick={onTestBtnHandler}>*/}
-        {/*    Отправить запрос*/}
-        {/*</Button>*/}
+        <Button className={'auth-btn'} onClick={onAuthBtnHandler}>
+            Авторизоваться
+        </Button>
     </div>
   );
 }
