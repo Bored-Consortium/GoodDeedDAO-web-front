@@ -19,24 +19,20 @@ const Form = () => {
     }, [country, street, subject])
 
     const user = tg.initDataUnsafe?.user;
-    const id = user.id;
-    const username = tg.username;
-    const first_name = tg.first_name;
-    const last_name = tg.last_name;
     //const hash = ;
     const bot_key = 'TU11tDw';
 
     const onAuthBtnHandler = useCallback(() => {
         const data = {
-            id,
-            username,
-            first_name,
-            last_name,
+            id: user?.id,
+            username: user?.username,
+            first_name: user?.first_name,
+            last_name: user?.last_name,
             //hash,
             bot_key,
         }
         tg.sendData(JSON.stringify(data));
-    }, [id, username, first_name, last_name, bot_key])
+    }, [user, bot_key])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
