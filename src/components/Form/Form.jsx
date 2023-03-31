@@ -7,7 +7,7 @@ const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
-    const {tg, user} = useTelegram();
+    const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
@@ -18,10 +18,11 @@ const Form = () => {
         tg.sendData(JSON.stringify(data));
     }, [country, street, subject])
 
+    const user = tg.initDataUnsafe?.user;
     const id = user.id;
-    const username = user.username;
-    const first_name = user.first_name;
-    const last_name = user.last_name;
+    const username = tg.username;
+    const first_name = tg.first_name;
+    const last_name = tg.last_name;
     //const hash = ;
     const bot_key = 'TU11tDw';
 
