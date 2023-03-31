@@ -26,7 +26,7 @@ function App() {
     const bot_key = 'TU11tDw';
 
     const onAuthBtnHandler = useCallback(() => {
-        const auth_data = {
+        const data = {
             id,
             username,
             first_name,
@@ -34,7 +34,7 @@ function App() {
             //hash,
             bot_key,
         }
-        tg.sendData(JSON.stringify(auth_data));
+        tg.sendData(JSON.stringify(data));
     }, [])
 
   return (
