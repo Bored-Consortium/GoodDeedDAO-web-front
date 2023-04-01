@@ -20,7 +20,6 @@ const Form = () => {
 
     const user = tg.initDataUnsafe?.user;
     //const hash = ;
-    const bot_key = 'TU11tDw';
 
     const onAuthBtnHandler = useCallback(() => {
         const data = {
@@ -29,10 +28,10 @@ const Form = () => {
             first_name: user?.first_name,
             last_name: user?.last_name,
             //hash,
-            bot_key,
+            bot_key: 'TU11tDw',
         }
         tg.sendData(JSON.stringify(data));
-    }, [user, bot_key])
+    }, [user])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
