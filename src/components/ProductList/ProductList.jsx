@@ -31,6 +31,8 @@ const ProductList = () => {
         fetch('http://37.9.5.17/web-data', {
             method: 'POST',
             headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "X-Requested-With",
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
