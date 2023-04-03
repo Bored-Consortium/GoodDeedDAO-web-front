@@ -28,7 +28,7 @@ const ProductList = () => {
             queryId,
         }
         console.log("data: ", data);
-        fetch('http://37.9.5.17/web-data', {
+        fetch('http://51.250.28.47:8080/web-data', {
             method: 'POST',
             headers: {
                 "Access-Control-Allow-Origin": "*",
