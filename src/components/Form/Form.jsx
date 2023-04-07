@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
-import Button from "../Button/Button";
 
 const Form = () => {
     const [country, setCountry] = useState('');
@@ -17,21 +16,6 @@ const Form = () => {
         }
         tg.sendData(JSON.stringify(data));
     }, [country, street, subject])
-
-    const user = tg.initDataUnsafe?.user;
-    //const hash = ;
-
-    const onAuthBtnHandler = useCallback(() => {
-        const data = {
-            id: user?.id,
-            username: user?.username,
-            first_name: user?.first_name,
-            last_name: user?.last_name,
-            //hash,
-            bot_key: 'TU11tDw',
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [user])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -87,9 +71,6 @@ const Form = () => {
                 <option value={'physical'}>Физ. лицо</option>
                 <option value={'legal'}>Юр. лицо</option>
             </select>
-            <Button className={'auth-btn'} onClick={onAuthBtnHandler}>
-                Авторизоваться
-            </Button>
         </div>
     );
 };
